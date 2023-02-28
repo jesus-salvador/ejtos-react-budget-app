@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 
 
 const AllocationForm = (props) => {
-    const {dispatch, remaining } = React.useContext(AppContext);
+    const { currency, dispatch, remaining } = React.useContext(AppContext);
 
     const [name, setName] = React.useState('');
     const [cost, setCost] = React.useState('');
@@ -56,12 +56,16 @@ const AllocationForm = (props) => {
                     <option defaultValue value='Add' name='Add'>Add</option>
                     <option value='Reduce' name='Reduce'>Reduce</option>
                 </select>
+                <span style={{
+                    marginLeft: '2em',
+                    marginRight: '0.5em',
+                }}>{currency}</span>
                 <input
                     required='required'
                     type='number'
                     id='cost'
                     value={cost}
-                    style={{ marginLeft: '2em', size: 10 }}
+                    style={{ size: 10 }}
                     onChange={ event => setCost(event.target.value)}
                 />
                 <button className='btn btn-primary' onClick={submitEvent} style={{ marginLeft: '2rem'}}>
