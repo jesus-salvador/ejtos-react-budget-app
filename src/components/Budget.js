@@ -14,6 +14,10 @@ const Budget = () => {
     }, 0);
 
     function updateBudget(val) {
+        if(val > 20000){
+            alert('You cannot exceed 20000 on the Budget')
+            return
+        }
         if(val < totalExpenses) {
             alert(`You cannot reduce the budget value lower than the spending`);
             return
